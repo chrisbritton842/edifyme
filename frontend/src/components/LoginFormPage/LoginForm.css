@@ -1,3 +1,80 @@
+.page {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-image: url(https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.home_page_bg_desktop.png-26-4770753d59b970e1.png);
+    background-color: #f7f7f8;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, .05) 0 0 0 1px inset;
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    min-height: 100%;
+    position: absolute;
+    transition: background-image 180ms ease-in-out;
+    width: 100%;
+}
+
+.center-container {
+    background-color: #fff;
+    border: 1px solid #dee0e1;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, .04) 0 1px 1px;
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    width: 702px;
+    height: 747px;
+}
+
+.title-div {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 24px;
+    width: 700px;
+    height: 126px;
+    text-align: center;
+}
+
+.edifyme {
+    color: #282829;
+    line-height: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 175.56px;
+    height: 48.17px;
+    font-size: 48.17px;
+    font-family: Cour;
+}
+
+.sub-text {
+    box-sizing: border-box;
+    color: #636466;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px;
+    position: relative;
+    text-align: center;
+    top: -16px;
+    width: 700px;
+    height: 21px;
+}
+
 .login-input-fields {
     box-sizing: border-box;
     display: flex;
