@@ -50,7 +50,7 @@
 }
 
 .edifyme {
-    color: #282829;
+    color: #b92b27;
     line-height: 0;
     justify-content: center;
     align-items: center;
@@ -58,7 +58,7 @@
     width: 175.56px;
     height: 48.17px;
     font-size: 48.17px;
-    font-family: Cour;
+    font-family: 'Libre Baskerville', serif;
 }
 
 .sub-text {
@@ -73,6 +73,42 @@
     top: -16px;
     width: 700px;
     height: 21px;
+}
+
+.middle-form-section {
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 24px;
+    width: 700px;
+}
+
+.left-middle {
+    border-color: #dee0e1;
+    border-right: solid #dee0e1;
+    border-width: 1px;
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 50%;
+}
+
+.right-middle {
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 50%;
 }
 
 .login-input-fields {

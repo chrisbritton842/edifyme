@@ -16,6 +16,12 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <title>EdifyMe</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet"></link>
+      </Helmet>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
