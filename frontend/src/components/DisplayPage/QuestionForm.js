@@ -15,9 +15,8 @@ function QuestionForm({ onClose }) {
     );
 
     const handleClick = () => {
-        console.log("Over here!!!!!!!!!!!!!!!!!!", newQuestion)
         return dispatch(questionsActions.createQuestion({ newQuestion }))
-    }
+    };
 
     return (
         <>

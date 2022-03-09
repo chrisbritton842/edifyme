@@ -10,8 +10,6 @@ const setQuestions = (questions) => {
 };
 
 export const createQuestion = ({ newQuestion }) => async (dispatch) => {
-
-
     const postedQuestion = await csrfFetch('/api/questions', {
         method: 'POST',
         headers: {
