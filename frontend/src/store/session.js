@@ -25,8 +25,8 @@ export const login = (user) => async (dispatch) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            credential,
-            password
+            credential: credential,
+            password: password
         })
     });
     const data = await response.json();
@@ -50,9 +50,9 @@ export const signup = (user) => async dispatch => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            username,
-            email,
-            password
+            username: username,
+            email: email,
+            password: password
         })
     });
 
