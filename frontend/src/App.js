@@ -6,6 +6,7 @@ import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 import { Helmet } from 'react-helmet';
+import DisplayPage from './components/DisplayPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,11 +28,14 @@ function App() {
         <Switch>
           <Route path='/login'>
             <LoginFormPage />
-        </Route>
-        <Route path='/signup'>
-          <SignupFormPage />
-        </Route>
-      </Switch>
+          </Route>
+          <Route path='/signup'>
+            <SignupFormPage />
+          </Route>
+          <Route path='/' exact>
+            <DisplayPage />
+          </Route>
+        </Switch>
       )}
     </>
   );
