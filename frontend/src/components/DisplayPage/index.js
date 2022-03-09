@@ -31,7 +31,7 @@ function DisplayPage() {
             </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <QuestionForm />
+                    <QuestionForm onClose={() => setShowModal(false)}/>
                 </Modal>
             )}
         </>

@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from './logo1.svg';
 import { ReactComponent as ExitLogo } from './exit.svg';
 
-function QuestionForm() {
+function QuestionForm({ onClose }) {
     return (
         <>
             <div className='modal-top'>
-                <div className='close-div'>
+                <div className='close-div' onClick={onClose}>
                     <ExitLogo />
                 </div>
                 <div className='add-question-div'>
@@ -26,7 +26,7 @@ function QuestionForm() {
                 </div>
             </div>
             <div className='modal-bottom'>
-                <button>Cancel</button>
+                <button onClick={onClose}>Cancel</button>
                 <button>Add question</button>
             </div>
         </>
