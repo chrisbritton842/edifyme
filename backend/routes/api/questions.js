@@ -14,7 +14,8 @@ router.get('/', asyncHandler(async (req, res) => {
 }));
 
 router.post('/', requireAuth, asyncHandler(async (req, res) => {
-    const { id } = jwtPayload.data;
+    const { id } = req.user;
+
     const { question } = req.body;
 
     const newQuestion = await Question.create({ ownerId: id, question: question });
