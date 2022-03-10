@@ -26,6 +26,30 @@ export const createQuestion = ({ newQuestion }) => async (dispatch) => {
     return allQuestions;
 };
 
+export const readQuestions = () => async (dispatch) => {
+    const allQuestions = await csrfFetch('/api/questions');
+    const data = await allQuestions.json();
+    dispatch(setQuestions(data));
+    return allQuestions;
+}
+
+export const updateQuestion = ({ newEdit, editedQuestionId }) => async (dispatch) => {
+    await csrfFetch(`/api/questions/${editedQuestionId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            question: newEdit
+        })
+    });
+
+    const allQuestions = await csrfFetch('/api/questions');
+    const data = await allQuestions.json();
+    dispatch(setQuestions(data));
+    return allQuestions;
+};
+
 export const deleteQuestion = (questionId) => async (dispatch) => {
     await csrfFetch(`/api/questions/${questionId}`, { method: 'DELETE'});
 

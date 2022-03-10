@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal } from '../../context/Modal';
 import QuestionForm from './QuestionForm';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,11 +12,32 @@ function DisplayPage() {
     const sessionUser = useSelector(state => state.session.user)
     const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(null);
+    const [modalType, setModalType] = useState('');
+    const [editedQuestionId, setEditedQuestionId] = useState(null)
+    const [answerDisplay, setAnswerDisplay] = useState(false)
     const { questions } = useSelector(state => state.questions);
     console.log("Questions: ", questions)
     console.log("Session User: ", sessionUser)
 
-    const handleClick = (questionId) => {
+
+
+    useEffect(() => {
+        return dispatch(questionsActions.readQuestions())
+
+    }, [dispatch])
+
+    const handleCreate = () => {
+        setModalType('create');
+        setShowModal(true);
+    };
+
+    const handleEdit = (questionId) => {
+        setModalType('edit');
+        setEditedQuestionId(questionId);
+        setShowModal(true);
+    };
+
+    const handleDelete = (questionId) => {
         return dispatch(questionsActions.deleteQuestion(questionId));
     };
 
@@ -29,8 +50,8 @@ function DisplayPage() {
         <>
             <div>
                 <div className='main-ask-head'></div>
-                <div className='top-ask-button' onClick={() => setShowModal(true)}>What do you want to ask or share?</div>
-                <div className='bottom-ask-button' onClick={() => setShowModal(true)}>
+                <div className='top-ask-button' onClick={handleCreate}>What do you want to ask or share?</div>
+                <div className='bottom-ask-button' onClick={handleCreate}>
                     <QuestionIcon />
                     Ask
                 </div>
@@ -54,7 +75,7 @@ function DisplayPage() {
                     </div>
                     <div className='bottom-bar'>
                         <div className='answer-button-div'>
-                            <button className='answer-button'>Answer</button>
+                            <button className='answer-button' onClick={() => setAnswerDisplay(!answerDisplay)}>Answer</button>
                         </div>
                         <div>
                             {sessionUser.id === item.ownerId && (
@@ -67,15 +88,26 @@ function DisplayPage() {
                             <ul className='profile-dropdown'>
                                 <li>
                                     <div></div>
-                                    <div>Edit</div>
+                                    <div onClick={() => handleEdit(item.id)}>Edit</div>
                                 </li>
                                 <li>
                                     <div></div>
-                                    <div onClick={() => handleClick(item.id)}>Delete</div>
+                                    <div onClick={() => handleDelete(item.id)}>Delete</div>
                                 </li>
                             </ul>
                         )}
                     </div>
+                    {answerDisplay && (
+                        <div>
+                            <div className='top-answer-section'>
+                                <div></div>
+
+                            </div>
+                            <div className='answer-display'>
+
+                            </div>
+                        </div>
+                    )}
                 </div>
             ))}
 
@@ -87,7 +119,7 @@ function DisplayPage() {
 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <QuestionForm onClose={() => setShowModal(false)}/>
+                    <QuestionForm onClose={() => setShowModal(false)} modalType={modalType} editedQuestionId={editedQuestionId}/>
                 </Modal>
             )}
         </>
