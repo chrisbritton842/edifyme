@@ -28,6 +28,12 @@ const validateSignup = [
 
 const router = express.Router();
 
+router.get('/', asyncHandler( async (req, res) => {
+    const users = await User.scope('currentUser').findAll();
+
+    return res.json({ users: users})
+}));
+
 router.post(
     '/',
     validateSignup,
@@ -38,7 +44,7 @@ router.post(
         await setTokenCookie(res, user);
 
         return res.json({
-            user
+            user: user
         });
     })
 );
