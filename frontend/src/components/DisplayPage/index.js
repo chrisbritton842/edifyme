@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import QuestionForm from './QuestionForm';
-import { useSelector, } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { ReactComponent as QuestionIcon } from './logo1.svg';
 import { ReactComponent as AnswerIcon } from './answer.svg';
+import * as questionsActions from '../../store/questions';
 
 function DisplayPage() {
-
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(null);
     const { questions } = useSelector(state => state.questions);
     console.log("Questions: ", questions)
     console.log("Session User: ", sessionUser)
+
+    const handleClick = (questionId) => {
+        return dispatch(questionsActions.deleteQuestion(questionId));
+    };
+
 
     if (!sessionUser) return (
         <Redirect to='/login' />
@@ -65,7 +71,7 @@ function DisplayPage() {
                                 </li>
                                 <li>
                                     <div></div>
-                                    <div>Delete</div>
+                                    <div onClick={() => handleClick(item.id)}>Delete</div>
                                 </li>
                             </ul>
                         )}

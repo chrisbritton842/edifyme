@@ -10,7 +10,7 @@ const setQuestions = (questions) => {
 };
 
 export const createQuestion = ({ newQuestion }) => async (dispatch) => {
-    const postedQuestion = await csrfFetch('/api/questions', {
+    await csrfFetch('/api/questions', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -25,6 +25,15 @@ export const createQuestion = ({ newQuestion }) => async (dispatch) => {
     dispatch(setQuestions(data));
     return allQuestions;
 };
+
+export const deleteQuestion = (questionId) => async (dispatch) => {
+    await csrfFetch(`/api/questions/${questionId}`, { method: 'DELETE'});
+
+    const allQuestions = await csrfFetch('/api/questions');
+    const data = await allQuestions.json();
+    dispatch(setQuestions(data));
+    return allQuestions;
+}
 
 const initialState = {};
 
