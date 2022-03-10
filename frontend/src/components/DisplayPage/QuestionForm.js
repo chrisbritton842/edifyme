@@ -8,8 +8,6 @@ import { Redirect } from 'react-router-dom';
 function QuestionForm({ onClose }) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const { questions } = useSelector(state => state.questions);
-    console.log("Over Here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", questions)
     const [newQuestion, setNewQuestion] = useState('')
 
     if (!sessionUser) return (
@@ -52,9 +50,6 @@ function QuestionForm({ onClose }) {
                 <button onClick={onClose}>Cancel</button>
                 <button onClick={handleClick}>Add question</button>
             </div>
-            {/* {questions.map(item => (
-
-            ))} */}
         </>
     )
 }
