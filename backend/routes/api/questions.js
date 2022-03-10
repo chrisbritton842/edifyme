@@ -8,13 +8,13 @@ const { Question, User, Answer } = require('../../db/models')
 const router = express.Router();
 
 router.get('/', asyncHandler(async (req, res) => {
-    const questions = await Answer.findAll({
+    const questions = await Question.findAll({
         include: [
             {
                 model: User
             },
             {
-                model: Question
+                model: Answer
             }
         ]
     });
