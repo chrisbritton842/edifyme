@@ -51,7 +51,7 @@ export const deleteAnswer = (answerId) => async (dispatch) => {
     const data = await allQuestions.json();
     dispatch(setQuestions(data));
     return allQuestions;
-}
+};
 
 export const createQuestion = ({ newQuestion }) => async (dispatch) => {
     await csrfFetch('/api/questions', {
