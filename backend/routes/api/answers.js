@@ -8,10 +8,10 @@ const { Question, User, Answer } = require('../../db/models')
 const router = express.Router();
 
 router.get('/', requireAuth, asyncHandler(async (req, res) => {
-    const answers = await Answer.findAll({
+    const answers = await User.findAll({
         include: [
             {
-                model: User
+                model: Answer
             },
             {
                 model: Question
