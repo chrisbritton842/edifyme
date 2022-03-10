@@ -8,7 +8,7 @@ const { Question, User, Answer } = require('../../db/models')
 const router = express.Router();
 
 router.get('/', requireAuth, asyncHandler(async (req, res) => {
-    const answers = await User.findAll({
+    const users = await User.findAll({
         include: [
             {
                 model: Answer
@@ -19,7 +19,7 @@ router.get('/', requireAuth, asyncHandler(async (req, res) => {
         ]
     });
 
-    return res.json({ answers: answers });
+    return res.json({ users: users });
 }));
 
 router.post('/', requireAuth, asyncHandler(async (req, res) => {
