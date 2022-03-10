@@ -101,7 +101,12 @@ function DisplayPage() {
                         <div>
                             <div className='top-answer-section'>
                                 <div></div>
-
+                                <div>
+                                    <textarea></textarea>
+                                </div>
+                                <div>
+                                    <button></button>
+                                </div>
                             </div>
                             <div className='answer-display'>
 
