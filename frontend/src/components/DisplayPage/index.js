@@ -40,13 +40,13 @@ function DisplayPage() {
                         <span>{item.User.personalDescription}</span>
                     </div>
                     <div className='question-section'>
-                        <span>{item.Question.question}</span>
+                        <span>{item.question}</span>
                     </div>
                     <div className='answers-section'>
-                        <span>{item.answer}</span>
+                        <span>{item.Answers[0]?.answer}</span>
                     </div>
                     <div className='bottom-bar'>
-                        
+
                     </div>
                 </div>
             ))}
