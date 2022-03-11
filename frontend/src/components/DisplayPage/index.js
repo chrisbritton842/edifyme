@@ -23,10 +23,6 @@ function DisplayPage() {
     const [answerText, setAnswerText] = useState('');
     const { questions } = useSelector(state => state.questions);
     const { users } = useSelector(state => state.users);
-    console.log("Users: ", users)
-    console.log("Questions: ", questions)
-    console.log("Session User: ", sessionUser)
-
 
 
     useEffect(() => {
@@ -71,8 +67,13 @@ function DisplayPage() {
     };
 
     const handleAnswer = (itemId) => {
+        console.log('Over Here!!!!!!!!!!!!!!!!')
         if (answerText) return dispatch(questionsActions.createAnswer({ questionId: itemId, answer: answerText }))
-    }
+    };
+
+    const handleOnChange = (e) => {
+        setAnswerText(e.target.value)
+    };
 
 
     if (!sessionUser) return (
@@ -137,11 +138,11 @@ function DisplayPage() {
                                 <div>
                                     <textarea
                                     value={answerText}
-                                    onChange={e => setAnswerText(e.target.value)}
+                                    onChange={handleOnChange}
                                     ></textarea>
                                 </div>
                                 <div>
-                                    <button onClick={handleAnswer(item.id)}>Submit</button>
+                                    <button onClick={() => handleAnswer(item.id)}>Submit</button>
                                 </div>
                             </div>
                             <div className='answer-display'>
