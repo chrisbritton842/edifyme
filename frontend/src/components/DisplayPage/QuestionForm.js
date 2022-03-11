@@ -5,12 +5,16 @@ import { ReactComponent as ExitLogo } from './exit.svg';
 import * as questionsActions from '../../store/questions';
 import { Redirect } from 'react-router-dom';
 
-function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId }) {
+function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, editedAnswerItem }) {
+    console.log('Edited Question Id: ', editedQuestionId)
+    console.log('Edited Answer Id: ', editedAnswerId)
+    console.log('Edited Answer Item: ', editedAnswerItem)
     const dispatch = useDispatch();
+    const { questions } = useSelector(state => state.questions);
     const sessionUser = useSelector(state => state.session.user);
     const [newQuestion, setNewQuestion] = useState('');
-    const [newEdit, setNewEdit] = useState('');
-    const [answerEdit, setAnswerEdit] = useState('');
+    const [newEdit, setNewEdit] = useState(editedQuestionId ? questions.find(question => question.id === editedQuestionId).question : '');
+    const [answerEdit, setAnswerEdit] = useState(editedAnswerId && editedAnswerItem ? questions.find(question => question.id === editedAnswerItem).Answers.find(answer => answer.id === editedAnswerId).answer : '');
 
     if (!sessionUser) return (
         <Redirect to='/login' />

@@ -17,6 +17,7 @@ function DisplayPage() {
     const [modalType, setModalType] = useState('');
     const [editedQuestionId, setEditedQuestionId] = useState(null);
     const [editedAnswerId, setEditedAnswerId] = useState(null);
+    const [editedAnswerItem, setEditedAnswerItem] = useState(null);
     const [answerDisplay, setAnswerDisplay] = useState(false);
     const [answerToggleId, setAnswerToggleId] = useState(null);
     const { questions } = useSelector(state => state.questions);
@@ -52,9 +53,10 @@ function DisplayPage() {
         return dispatch(questionsActions.deleteQuestion(questionId));
     };
 
-    const handleAnswerEdit = (answerId) => {
+    const handleAnswerEdit = (answerId, itemId) => {
         setModalType('answerEdit');
         setEditedAnswerId(answerId);
+        setEditedAnswerItem(itemId);
         setShowModal(true);
     };
 
@@ -156,7 +158,7 @@ function DisplayPage() {
                                                 <ul className='answer-button-drop-down'>
                                                     <li>
                                                         <div></div>
-                                                        <div onClick={() => handleAnswerEdit(answer.id)}>Edit</div>
+                                                        <div onClick={() => handleAnswerEdit(answer.id, answer.questionId)}>Edit</div>
                                                     </li>
                                                     <li>
                                                         <div></div>
@@ -181,7 +183,7 @@ function DisplayPage() {
 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <QuestionForm onClose={() => setShowModal(false)} modalType={modalType} editedQuestionId={editedQuestionId} editedAnswerId={editedAnswerId}/>
+                    <QuestionForm onClose={() => setShowModal(false)} modalType={modalType} editedQuestionId={editedQuestionId} editedAnswerId={editedAnswerId} editedAnswerItem={editedAnswerItem}/>
                 </Modal>
             )}
         </>
