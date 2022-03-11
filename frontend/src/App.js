@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
-import Navigation from './components/Navigation';
 import { Helmet } from 'react-helmet';
 import DisplayPage from './components/DisplayPage';
 
@@ -23,7 +22,6 @@ function App() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet"></link>
       </Helmet>
-      <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
           <Route path='/login'>

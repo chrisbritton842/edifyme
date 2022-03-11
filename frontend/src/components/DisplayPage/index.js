@@ -7,6 +7,8 @@ import { ReactComponent as QuestionIcon } from './logo1.svg';
 import { ReactComponent as AnswerIcon } from './answer.svg';
 import * as questionsActions from '../../store/questions';
 import * as usersActions from '../../store/users';
+import * as sessionActions from '../../store/session';
+import Navigation from '../Navigation';
 
 function DisplayPage() {
     const dispatch = useDispatch();
@@ -21,9 +23,14 @@ function DisplayPage() {
     const [answerDisplay, setAnswerDisplay] = useState(false);
     const [answerToggleId, setAnswerToggleId] = useState(null);
     const [answerText, setAnswerText] = useState('');
+    const [isLoaded, setIsLoaded] = useState(false);
     const { questions } = useSelector(state => state.questions);
     const { users } = useSelector(state => state.users);
 
+
+    useEffect(() => {
+        dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    }, [dispatch]);
 
     useEffect(() => {
         return dispatch(usersActions.readUsers())
@@ -82,6 +89,7 @@ function DisplayPage() {
 
     return (
         <>
+            <Navigation isLoaded={isLoaded} />
             <div>
                 <div className='main-ask-head'></div>
                 <div className='top-ask-button' onClick={handleCreate}>What do you want to ask or share?</div>
