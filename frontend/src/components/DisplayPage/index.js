@@ -74,7 +74,6 @@ function DisplayPage() {
     };
 
     const handleAnswer = (itemId) => {
-        console.log('Over Here!!!!!!!!!!!!!!!!')
         if (answerText) return dispatch(questionsActions.createAnswer({ questionId: itemId, answer: answerText }))
     };
 
