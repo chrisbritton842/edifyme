@@ -12,7 +12,7 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
     const sessionUser = useSelector(state => state.session.user);
     const [newQuestion, setNewQuestion] = useState('');
     const [newEdit, setNewEdit] = useState(editedQuestionId ? questions.find(question => question.id === editedQuestionId)?.question : '');
-    const [answerEdit, setAnswerEdit] = useState(editedAnswerId && editedAnswerItem ? questions.find(question => question.id === editedAnswerItem).Answers.find(answer => answer.id === editedAnswerId).answer : '');
+    const [answerEdit, setAnswerEdit] = useState(editedAnswerId && editedAnswerItem ? questions.find(question => question.id === editedAnswerItem).Answers.find(answer => answer.id === editedAnswerId)?.answer : '');
 
     if (!sessionUser) return (
         <Redirect to='/login' />
