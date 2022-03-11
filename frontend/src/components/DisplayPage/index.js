@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import { ReactComponent as QuestionIcon } from './logo1.svg';
 import { ReactComponent as AnswerIcon } from './answer.svg';
 import * as questionsActions from '../../store/questions';
+import * as usersActions from '../../store/users';
 
 function DisplayPage() {
     const dispatch = useDispatch();
@@ -16,9 +17,16 @@ function DisplayPage() {
     const [editedQuestionId, setEditedQuestionId] = useState(null)
     const [answerDisplay, setAnswerDisplay] = useState(false)
     const { questions } = useSelector(state => state.questions);
+    const { users } = useSelector(state => state.users);
+    console.log("Users: ", users)
     console.log("Questions: ", questions)
     console.log("Session User: ", sessionUser)
 
+
+
+    useEffect(() => {
+        return dispatch(usersActions.readUsers())
+    }, [dispatch])
 
 
     useEffect(() => {
