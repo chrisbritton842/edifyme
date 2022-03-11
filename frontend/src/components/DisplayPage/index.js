@@ -13,6 +13,7 @@ function DisplayPage() {
     const sessionUser = useSelector(state => state.session.user)
     const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(null);
+    const [showAnswerMenu, setShowAnswerMenu] = useState(null)
     const [modalType, setModalType] = useState('');
     const [editedQuestionId, setEditedQuestionId] = useState(null)
     const [answerDisplay, setAnswerDisplay] = useState(false)
@@ -117,7 +118,34 @@ function DisplayPage() {
                                 </div>
                             </div>
                             <div className='answer-display'>
-
+                                {item.Answers.map(answer => (
+                                    <div>
+                                        <div className='answer-person-face'></div>
+                                        <div className='answer-person-name'></div>
+                                        <div className='drop-down-answer'></div>
+                                        <div className='drop-down-answer-bar'>
+                                            <div>
+                                                {sessionUser.id === answer.userId && (
+                                                    <button onClick={() => setShowAnswerMenu(answer.id)}>
+                                                    svg
+                                                    </button>
+                                                )}
+                                            </div>
+                                            {showAnswerMenu === answer.id && (
+                                                <ul className='answer-button-drop-down'>
+                                                    <li>
+                                                        <div></div>
+                                                        <div onClick={() => handleAnswerEdit(answer.id)}>Edit</div>
+                                                    </li>
+                                                    <li>
+                                                        <div></div>
+                                                        <div onClick={() => handleAnswerDelete(answer.id)}>Delete</div>
+                                                    </li>
+                                                </ul>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     )}
