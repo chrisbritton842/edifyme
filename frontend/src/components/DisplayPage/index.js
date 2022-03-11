@@ -15,8 +15,10 @@ function DisplayPage() {
     const [showMenu, setShowMenu] = useState(null);
     const [showAnswerMenu, setShowAnswerMenu] = useState(null)
     const [modalType, setModalType] = useState('');
-    const [editedQuestionId, setEditedQuestionId] = useState(null)
-    const [answerDisplay, setAnswerDisplay] = useState(false)
+    const [editedQuestionId, setEditedQuestionId] = useState(null);
+    const [editedAnswerId, setEditedAnswerId] = useState(null);
+    const [answerDisplay, setAnswerDisplay] = useState(false);
+    const [answerToggleId, setAnswerToggleId] = useState(null);
     const { questions } = useSelector(state => state.questions);
     const { users } = useSelector(state => state.users);
     console.log("Users: ", users)
@@ -48,6 +50,21 @@ function DisplayPage() {
 
     const handleDelete = (questionId) => {
         return dispatch(questionsActions.deleteQuestion(questionId));
+    };
+
+    const handleAnswerEdit = (answerId) => {
+        setModalType('answerEdit');
+        setEditedAnswerId(answerId);
+        setShowModal(true);
+    };
+
+    const handleAnswerDelete = (answerId) => {
+        return dispatch(questionsActions.deleteAnswer(answerId));
+    };
+
+    const handleAnswerToggle = (questionId) => {
+        setAnswerDisplay(!answerDisplay)
+        setAnswerToggleId(questionId)
     };
 
 
@@ -84,7 +101,7 @@ function DisplayPage() {
                     </div>
                     <div className='bottom-bar'>
                         <div className='answer-button-div'>
-                            <button className='answer-button' onClick={() => setAnswerDisplay(!answerDisplay)}>Answer</button>
+                            <button className='answer-button' onClick={() => handleAnswerToggle(item.id)}>Answer</button>
                         </div>
                         <div>
                             {sessionUser.id === item.ownerId && (
@@ -106,7 +123,7 @@ function DisplayPage() {
                             </ul>
                         )}
                     </div>
-                    {answerDisplay && (
+                    {answerDisplay && answerToggleId === item.id && (
                         <div>
                             <div className='top-answer-section'>
                                 <div></div>
@@ -160,7 +177,7 @@ function DisplayPage() {
 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <QuestionForm onClose={() => setShowModal(false)} modalType={modalType} editedQuestionId={editedQuestionId}/>
+                    <QuestionForm onClose={() => setShowModal(false)} modalType={modalType} editedQuestionId={editedQuestionId} editedAnswerId={editedAnswerId}/>
                 </Modal>
             )}
         </>

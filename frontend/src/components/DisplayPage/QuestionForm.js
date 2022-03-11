@@ -5,11 +5,12 @@ import { ReactComponent as ExitLogo } from './exit.svg';
 import * as questionsActions from '../../store/questions';
 import { Redirect } from 'react-router-dom';
 
-function QuestionForm({ onClose, modalType, editedQuestionId }) {
+function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId }) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [newQuestion, setNewQuestion] = useState('');
     const [newEdit, setNewEdit] = useState('');
+    const [answerEdit, setAnswerEdit] = useState('');
 
     if (!sessionUser) return (
         <Redirect to='/login' />
@@ -25,6 +26,11 @@ function QuestionForm({ onClose, modalType, editedQuestionId }) {
             onClose();
             return dispatch(questionsActions.createQuestion({ newQuestion }))
         }
+    };
+
+    const handleAnswerEdit = () => {
+        onClose();
+        return dispatch(questionsActions.updateAnswer({ answerId: editedAnswerId, answerEdit }))
     };
 
     return (
@@ -90,6 +96,38 @@ function QuestionForm({ onClose, modalType, editedQuestionId }) {
                         <div className='modal-bottom'>
                             <button onClick={onClose}>Cancel</button>
                             <button onClick={handleAsk}>Add question</button>
+                        </div>
+                    </div>
+                )}
+            </div>
+            <div>
+                {modalType === 'answerEdit' && (
+                    <div>
+                        <div className='modal-top'>
+                            <div className='close-div' onClick={onClose}>
+                                <ExitLogo />
+                            </div>
+                            <div className='add-question-div'>
+                                Edit Answer
+                            </div>
+                        </div>
+                        <div className='modal-middle'>
+                            <div className='inner-modal-middle'>
+                                <div className='inner-icon-div'>
+                                    <div className='circle-icon'></div>
+                                </div>
+                                <div className='text-area-div'>
+                                    <textarea
+                                    placeholder='Start your question with "What", "How", "Why", etc.'
+                                    value={answerEdit}
+                                    onChange={e => setAnswerEdit(e.target.value)}
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='modal-bottom'>
+                            <button onClick={onClose}>Cancel</button>
+                            <button onClick={handleAnswerEdit}>Edit</button>
                         </div>
                     </div>
                 )}
