@@ -20,6 +20,7 @@ function DisplayPage() {
     const [editedAnswerItem, setEditedAnswerItem] = useState(null);
     const [answerDisplay, setAnswerDisplay] = useState(false);
     const [answerToggleId, setAnswerToggleId] = useState(null);
+    const [answerText, setAnswerText] = useState('');
     const { questions } = useSelector(state => state.questions);
     const { users } = useSelector(state => state.users);
     console.log("Users: ", users)
@@ -69,6 +70,10 @@ function DisplayPage() {
         setAnswerToggleId(questionId)
     };
 
+    const handleAnswer = (itemId) => {
+        if (answerText) return dispatch(questionsActions.createAnswer({ questionId: itemId, answer: answerText }))
+    }
+
 
     if (!sessionUser) return (
         <Redirect to='/login' />
@@ -89,7 +94,7 @@ function DisplayPage() {
                 </div>
             </div>
             {questions?.map(item => (
-                <div className='question-container'>
+                <div key={item.id} className='question-container'>
                     <div className='question-top'>
                         <div className='user-image'></div>
                         <span>{item.User.username}</span>
@@ -130,15 +135,18 @@ function DisplayPage() {
                             <div className='top-answer-section'>
                                 <div></div>
                                 <div>
-                                    <textarea></textarea>
+                                    <textarea
+                                    value={answerText}
+                                    onChange={e => setAnswerText(e.target.value)}
+                                    ></textarea>
                                 </div>
                                 <div>
-                                    <button></button>
+                                    <button onClick={handleAnswer(item.id)}>Submit</button>
                                 </div>
                             </div>
                             <div className='answer-display'>
                                 {item.Answers.map(answer => (
-                                    <div>
+                                    <div key={answer.id}>
                                         <div className='answer-person-face'></div>
                                         <div className='answer-person-name'>
                                             {users.find(user => user.id === answer.userId).username}
