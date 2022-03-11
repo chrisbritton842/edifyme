@@ -6,7 +6,6 @@ import * as questionsActions from '../../store/questions';
 import { Redirect } from 'react-router-dom';
 
 function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, editedAnswerItem }) {
-    console.log('Edited Answer Id: ', editedAnswerId)
     const dispatch = useDispatch();
     const { questions } = useSelector(state => state.questions);
     const sessionUser = useSelector(state => state.session.user);

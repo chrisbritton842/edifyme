@@ -3,6 +3,8 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
+import { Modal } from '../../context/Modal'
+import SignupFormPage from '../SignupFormPage';
 
 const LoginFormPage = () => {
     const dispatch = useDispatch();
@@ -10,6 +12,7 @@ const LoginFormPage = () => {
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
     if (sessionUser) return (
         <Redirect to='/' />
@@ -44,7 +47,7 @@ const LoginFormPage = () => {
                     <div className='middle-form-section'>
                         <div className='left-middle'>
                             <div className='sign-up-div'>
-                                <button className='sign-up-btn'>Sign up</button>
+                                <button className='sign-up-btn' onClick={() => setShowModal(true)}>Sign up</button>
                             </div>
                             <div className='demo-div'>
                                 <button className='demo-btn' onClick={handleDemo}>Demo</button>
@@ -72,6 +75,12 @@ const LoginFormPage = () => {
                     </div>
                 </div>
             </div>
+
+            {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    <SignupFormPage onClose={() => setShowModal(false)}/>
+                </Modal>
+            )}
 
         </>
 
