@@ -11,7 +11,7 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
     const { questions } = useSelector(state => state.questions);
     const sessionUser = useSelector(state => state.session.user);
     const [newQuestion, setNewQuestion] = useState('');
-    const [newEdit, setNewEdit] = useState(editedQuestionId ? questions.find(question => question.id === editedQuestionId).question : '');
+    const [newEdit, setNewEdit] = useState(editedQuestionId ? questions.find(question => question.id === editedQuestionId)?.question : '');
     const [answerEdit, setAnswerEdit] = useState(editedAnswerId && editedAnswerItem ? questions.find(question => question.id === editedAnswerItem).Answers.find(answer => answer.id === editedAnswerId).answer : '');
 
     if (!sessionUser) return (
@@ -32,7 +32,7 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
 
     const handleAnswerEdit = () => {
         onClose();
-        return dispatch(questionsActions.updateAnswer({ answerId: editedAnswerId, answerEdit }))
+        return dispatch(questionsActions.updateAnswer({ answerId: editedAnswerId, newAnswer: answerEdit }))
     };
 
     return (
