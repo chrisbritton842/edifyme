@@ -23,11 +23,15 @@ const LoginFormPage = () => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-    }
+    };
+
+    const handleDemo = () => {
+        return dispatch(sessionActions.login({ credential: 'demo@demo.com', password: 'demouser'}))
+    };
 
     return (
         <>
-            
+
             <div className='page'>
                 <div className='center-container'>
                     <div className='title-div'>
@@ -38,7 +42,14 @@ const LoginFormPage = () => {
 
                     </span>
                     <div className='middle-form-section'>
-                        <div className='left-middle'></div>
+                        <div className='left-middle'>
+                            <div className='sign-up-div'>
+                                <button className='sign-up-btn'>Sign up</button>
+                            </div>
+                            <div className='demo-div'>
+                                <button className='demo-btn' onClick={handleDemo}>Demo</button>
+                            </div>
+                        </div>
                         <div className='right-middle'>
                             <form onSubmit={handleSubmit}>
                                 <ul>
