@@ -138,8 +138,12 @@ function DisplayPage() {
                                 {item.Answers.map(answer => (
                                     <div>
                                         <div className='answer-person-face'></div>
-                                        <div className='answer-person-name'></div>
-                                        <div className='drop-down-answer'></div>
+                                        <div className='answer-person-name'>
+                                            {users.find(user => user.id === answer.userId).username}
+                                        </div>
+                                        <div className='drop-down-answer'>
+                                            {answer.answer}
+                                        </div>
                                         <div className='drop-down-answer-bar'>
                                             <div>
                                                 {sessionUser.id === answer.userId && (
