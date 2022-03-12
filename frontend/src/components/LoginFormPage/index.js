@@ -58,9 +58,14 @@ const LoginFormPage = () => {
                                 <ul>
                                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                                 </ul>
+                                <div className='top-outer-login-div'>
+                                    <div className='top-inner-login-div'>
+                                        Login
+                                    </div>
+                                </div>
                                 <div className='login-email-box'>
                                     <div className='login-email-label'>
-                                        <label>Username or Email</label>
+                                        <label className='email-label'>Username or Email</label>
                                     </div>
                                     <div className='login-email-input'>
                                         <input className='email-input-field' type='text' value={credential} onChange={e => setCredential(e.target.value)} required />
@@ -68,14 +73,16 @@ const LoginFormPage = () => {
                                 </div>
                                 <div className='login-password-box'>
                                     <div className='login-password-label'>
-                                        <label>Password</label>
+                                        <label className='password-label'>Password</label>
                                     </div>
                                     <div className='login-password-input'>
                                         <input className='password-input-field' type='password' value={password} onChange={e => setPassword(e.target.value)} required />
                                     </div>
                                 </div>
                                 <div className='login-button-div'>
-                                    <button type='submit'>Log In</button>
+                                    <button type='submit' className='the-login-button'>
+                                        <div className='login-btn-text'>Login</div>
+                                    </button>
                                 </div>
                             </form>
                         </div>
