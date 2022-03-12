@@ -30,7 +30,7 @@
     font-size: 15px;
     line-height: 21px;
     width: 702px;
-    height: 747px;
+    height: 434;
 }
 
 .title-div {
@@ -151,6 +151,14 @@
     user-select: none;
     white-space: nowrap;
     width: 100%;
+}
+
+.sign-up-btn:hover {
+    background-color: rgba(0, 0, 0, .03);
+}
+
+.sign-up-btn:active {
+    background-color: rgba(0, 0, 0, .03);
 }
 
 .login-email-label {
@@ -371,4 +379,49 @@
     font-size: 13px;
     font-weight: 700;
     line-height: 18.2px;
+}
+
+.inner-left-div {
+    border-bottom: solid #dee0e1;
+    border-color: #dee0e1;
+    border-width: 1px;
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+}
+
+.demo-div {
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #dee0e1;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #282829;
+    cursor: pointer;
+    display: flex;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    padding: 8px;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.demo-div:hover {
+    background-color: #f5f5f5;
+}
+
+.demo-btn-text {
+    box-sizing: border-box;
+    color: #282829;
+    cursor: pointer;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    margin-right: 8px;
 }

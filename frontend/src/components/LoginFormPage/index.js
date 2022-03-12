@@ -46,11 +46,11 @@ const LoginFormPage = () => {
                     </span>
                     <div className='middle-form-section'>
                         <div className='left-middle'>
-                            <div className='sign-up-div'>
+                            <div className='inner-left-div'>
+                                <div className='demo-div' onClick={handleDemo}>
+                                    <div className='demo-btn-text'>Demo</div>
+                                </div>
                                 <button className='sign-up-btn' onClick={() => setShowModal(true)}>Sign up</button>
-                            </div>
-                            <div className='demo-div'>
-                                <button className='demo-btn' onClick={handleDemo}>Demo</button>
                             </div>
                         </div>
                         <div className='right-middle'>
