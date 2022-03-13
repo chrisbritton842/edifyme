@@ -32,56 +32,80 @@ const SignupFormPage = ({ onClose }) => {
 
     return (
         <>
-        <div>
-            <div className='close-div' onClick={onClose}>
-                <ExitLogo />
+            <div className='signup-modal-container'>
+                <div className='signup-top-band'>
+                    <button className='signup-close-btn' onClick={onClose}>
+                        <ExitLogo />
+                    </button>
+                </div>
+                <div className='signup-title-band'>
+                    <div className='signup-title-text'>Sign up</div>
+                </div>
+                <div className='signup-form-section'>
+                    <form onSubmit={handleSubmit}>
+                        <ul>
+                            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        </ul>
+                        <div className='inner-signup-form-section'>
+                            <div className='signup-username-box'>
+                                <div className='signup-label'>Username</div>
+                                <div className='signup-input-box'>
+                                    <input
+                                        className='signup-input'
+                                        type='text'
+                                        value={username}
+                                        onChange={e => setUsername(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className='signup-email-box'>
+                                <div className='signup-label'>Email</div>
+                                <div className='signup-input-box'>
+                                    <input
+                                        className='signup-input'
+                                        type='text'
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className='signup-password-box'>
+                                <div className='signup-label'>Password</div>
+                                <div className='signup-input-box'>
+                                    <input
+                                        className='signup-input'
+                                        type='password'
+                                        value={password}
+                                        onChange={e => setPassword(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className='signup-confirm-password-box'>
+                                <div className='signup-label'>Confirm Password</div>
+                                <div className='signup-input-box'>
+                                    <input
+                                        className='signup-input'
+                                        type='password'
+                                        value={confirmPassword}
+                                        onChange={e => setConfirmPassword(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className='signup-outer-bottom-band'>
+                            <div className='signup-bottom-band'>
+                                <button className='signup-submit-btn' type='submit'>
+                                    <div className='submit-next-text'>Next</div>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-        </div>
-        <div>
-            <form onSubmit={handleSubmit}>
-                <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-                <label>
-                 Email
-                    <input
-                        type='text'
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Username
-                    <input
-                        type='text'
-                        value={username}
-                        onChange={e => setUsername(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Password
-                    <input
-                        type='password'
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Confirm Password
-                    <input
-                        type='password'
-                        value={confirmPassword}
-                        onChange={e => setConfirmPassword(e.target.value)}
-                        required
-                    />
-                </label>
-                <button type='submit'>Next</button>
-            </form>
-        </div>
         </>
     );
 }

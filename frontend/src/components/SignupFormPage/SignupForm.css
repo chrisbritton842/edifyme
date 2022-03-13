@@ -1,0 +1,260 @@
+.signup-modal-container {
+    align-self: center;
+    background-color: #fff;
+    border: 1px solid #dee0e1;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    max-height: 80vh;
+    max-width: 90vw;
+    min-height: 400px;
+    overflow-y: auto;
+    position: relative;
+    transition-duration: 180ms;
+    transition-property: opacity,transform;
+    transition-timing-function: ease-in-out;
+    width: 620px;
+}
+
+.signup-top-band {
+    align-items: center;
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    padding: 8px 8px 8px 4px;
+}
+
+.signup-close-btn {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, .6);
+    align-items: center;
+    appearance: none;
+    background-color: transparent;
+    border-radius: 1000px;
+    border-width: 0;
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    height: 38px;
+    justify-content: center;
+    line-height: 1.15;
+    margin: 0;
+    min-width: 38px;
+    outline: none;
+    outline: 0;
+    overflow: visible;
+    padding: 0 6px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition-duration: 60ms;
+    transition-property: box-shadow,background-color;
+    transition-timing-function: ease-out;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.signup-title-band {
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.signup-title-text {
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25.2px;
+}
+
+.inner-signup-form-section {
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    padding: 8px 16px 16px;
+}
+
+.signup-username-box {
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 16px;
+}
+
+.signup-email-box {
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 16px;
+}
+
+.signup-password-box {
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 16px;
+}
+
+.signup-confirm-password-box {
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 16px;
+}
+
+.signup-label {
+    align-items: center;
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    flex: 1 1 0%;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+}
+
+.signup-input-box {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #dee0e1;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    min-height: 45px;
+    padding: 8px;
+    position: relative;
+    transition-duration: 180ms;
+    transition-timing-function: ease-in-out;
+    z-index: 0;
+}
+
+.signup-input {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #282829;
+    cursor: text;
+    flex: 1 1 0;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    height: unset;
+    line-height: 1.4;
+    margin: 0;
+    outline: 0;
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+}
+
+.signup-bottom-band {
+    align-items: center;
+    align-self: stretch;
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    justify-content: flex-end;
+    line-height: 21px;
+}
+
+.signup-submit-btn {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, .6);
+    align-items: center;
+    appearance: none;
+    background-color: #2e69ff;
+    border-radius: 1000px;
+    border-width: 0;
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    height: 38px;
+    justify-content: center;
+    line-height: 1.15;
+    margin: 0;
+    min-width: 38px;
+    opacity: .5;
+    outline: none;
+    outline: 0;
+    overflow: visible;
+    padding: 0 20px;
+    pointer-events: none;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition-duration: 60ms;
+    transition-property: box-shadow,background-color;
+    transition-timing-function: ease-out;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.submit-next-text {
+    align-items: center;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.6px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.signup-outer-bottom-band {
+    align-items: center;
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    padding: 8px 16px;
+}
