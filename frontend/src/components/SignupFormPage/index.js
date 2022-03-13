@@ -17,13 +17,12 @@ const SignupFormPage = ({ onClose }) => {
     if (sessionUser) return <Redirect to='/' />;
 
     const handleSubmit = (e) => {
-        console.log("I'm here!!!!!!!!!!!!!!!!!!!!!")
         e.preventDefault();
         if (password === confirmPassword) {
             setErrors([]);
             return dispatch(sessionActions.signup({ email, username, password }))
                 .catch(async (res) => {
-                    const data = res.json();
+                    const data = await res.json();
                     if (data && data.errors) setErrors(data.errors);
                 });
         }
