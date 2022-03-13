@@ -17,6 +17,7 @@ const SignupFormPage = ({ onClose }) => {
     if (sessionUser) return <Redirect to='/' />;
 
     const handleSubmit = (e) => {
+        console.log("I'm here!!!!!!!!!!!!!!!!!!!!!")
         e.preventDefault();
         if (password === confirmPassword) {
             setErrors([]);
@@ -98,7 +99,7 @@ const SignupFormPage = ({ onClose }) => {
                         </div>
                         <div className='signup-outer-bottom-band'>
                             <div className='signup-bottom-band'>
-                                <button className='signup-submit-btn' type='submit'>
+                                <button type='submit' className='signup-submit-btn'>
                                     <div className='submit-next-text'>Next</div>
                                 </button>
                             </div>
