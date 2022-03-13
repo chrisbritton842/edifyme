@@ -3,8 +3,8 @@ import { Modal } from '../../context/Modal';
 import QuestionForm from './QuestionForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { ReactComponent as QuestionIcon } from './logo1.svg';
 import { ReactComponent as AnswerIcon } from './answer.svg';
+import { ReactComponent as EditIcon } from './edit.svg';
 import * as questionsActions from '../../store/questions';
 import * as usersActions from '../../store/users';
 import * as sessionActions from '../../store/session';
@@ -17,6 +17,7 @@ function DisplayPage() {
     const sessionUser = useSelector(state => state.session.user)
     const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(null);
+    const [showMenuBool, setShowMenuBool] = useState(false);
     const [showAnswerMenu, setShowAnswerMenu] = useState(null)
     const [modalType, setModalType] = useState('');
     const [editedQuestionId, setEditedQuestionId] = useState(null);
@@ -118,16 +119,21 @@ function DisplayPage() {
                             </div>
                             <div className='bottom-bar'>
                                 <div className='answer-button-div'>
-                                    <button className='answer-button' onClick={() => handleAnswerToggle(item.id)}>Answer</button>
+                                    <button className='answer-button' onClick={() => handleAnswerToggle(item.id)}>
+                                        <AnswerIcon />
+                                    </button>
                                 </div>
-                                <div>
+                                <div className='question-edit-button-div'>
                                     {sessionUser.id === item.ownerId && (
-                                        <button onClick={() => setShowMenu(item.id)}>
-                                            svg
+                                        <button className='question-edit-button' onClick={() => {
+                                            setShowMenu(item.id);
+                                            setShowMenuBool(!showMenuBool);
+                                            }}>
+                                            <EditIcon />
                                         </button>
                                     )}
                                 </div>
-                                {showMenu === item.id && (
+                                {showMenu === item.id && showMenuBool && (
                                     <ul className='profile-dropdown'>
                                         <li>
                                             <div></div>
