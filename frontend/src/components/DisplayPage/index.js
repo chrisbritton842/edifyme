@@ -102,14 +102,6 @@ function DisplayPage() {
                                 <div className='top-ask-btn-text'>What do you want to ask or share?</div>
                             </div>
                         </div>
-                        <div className='bottom-ask-button' onClick={handleCreate}>
-                            <QuestionIcon />
-                            Ask
-                        </div>
-                        <div className='answer-button'>
-                            <AnswerIcon />
-                            Answer
-                        </div>
                     </div>
                     {questions?.map(item => (
                         <div key={item.id} className='question-container'>
