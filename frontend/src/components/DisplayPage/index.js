@@ -9,6 +9,8 @@ import * as questionsActions from '../../store/questions';
 import * as usersActions from '../../store/users';
 import * as sessionActions from '../../store/session';
 import Navigation from '../Navigation';
+import './DisplayPage.css';
+import head from './head.png';
 
 function DisplayPage() {
     const dispatch = useDispatch();
@@ -89,117 +91,125 @@ function DisplayPage() {
     return (
         <>
             <Navigation isLoaded={isLoaded} />
-            <div>
-                <div className='main-ask-head'></div>
-                <div className='top-ask-button' onClick={handleCreate}>What do you want to ask or share?</div>
-                <div className='bottom-ask-button' onClick={handleCreate}>
-                    <QuestionIcon />
-                    Ask
-                </div>
-                <div className='answer-button'>
-                    <AnswerIcon />
-                    Answer
-                </div>
-            </div>
-            {questions?.map(item => (
-                <div key={item.id} className='question-container'>
-                    <div className='question-top'>
-                        <div className='user-image'></div>
-                        <span>{item.User?.username}</span>
-                        <span>{item.User?.personalDescription}</span>
-                    </div>
-                    <div className='question-section'>
-                        <span>{item.question}</span>
-                    </div>
-                    <div className='answers-section'>
-                        <span>{item.Answers[0]?.answer}</span>
-                    </div>
-                    <div className='bottom-bar'>
-                        <div className='answer-button-div'>
-                            <button className='answer-button' onClick={() => handleAnswerToggle(item.id)}>Answer</button>
-                        </div>
-                        <div>
-                            {sessionUser.id === item.ownerId && (
-                                <button onClick={() => setShowMenu(item.id)}>
-                                    svg
-                                </button>
-                            )}
-                        </div>
-                        {showMenu === item.id && (
-                            <ul className='profile-dropdown'>
-                                <li>
-                                    <div></div>
-                                    <div onClick={() => handleEdit(item.id)}>Edit</div>
-                                </li>
-                                <li>
-                                    <div></div>
-                                    <div onClick={() => handleDelete(item.id)}>Delete</div>
-                                </li>
-                            </ul>
-                        )}
-                    </div>
-                    {answerDisplay && answerToggleId === item.id && (
-                        <div>
-                            <div className='top-answer-section'>
-                                <div></div>
-                                <div>
-                                    <textarea
-                                    value={answerText}
-                                    onChange={handleOnChange}
-                                    ></textarea>
-                                </div>
-                                <div>
-                                    <button onClick={() => handleAnswer(item.id)}>Submit</button>
-                                </div>
+            <div className='display-page-container'>
+                <div className='left-column'></div>
+
+                <div className='display-page-content-container'>
+                    <div className='top-question-container'>
+                        <div className='ask-head-div'>
+                            <img className='main-ask-head' src={head} alt='Logo' />
+                            <div className='top-ask-button' onClick={handleCreate}>
+                                <div className='top-ask-btn-text'>What do you want to ask or share?</div>
                             </div>
-                            <div className='answer-display'>
-                                {item.Answers.map(answer => (
-                                    <div key={answer.id}>
-                                        <div className='answer-person-face'></div>
-                                        <div className='answer-person-name'>
-                                            {users.find(user => user.id === answer.userId).username}
+                        </div>
+                        <div className='bottom-ask-button' onClick={handleCreate}>
+                            <QuestionIcon />
+                            Ask
+                        </div>
+                        <div className='answer-button'>
+                            <AnswerIcon />
+                            Answer
+                        </div>
+                    </div>
+                    {questions?.map(item => (
+                        <div key={item.id} className='question-container'>
+                            <div className='question-top'>
+                                <div className='user-image'></div>
+                                <span>{item.User?.username}</span>
+                                <span>{item.User?.personalDescription}</span>
+                            </div>
+                            <div className='question-section'>
+                                <span>{item.question}</span>
+                            </div>
+                            <div className='answers-section'>
+                                <span>{item.Answers[0]?.answer}</span>
+                            </div>
+                            <div className='bottom-bar'>
+                                <div className='answer-button-div'>
+                                    <button className='answer-button' onClick={() => handleAnswerToggle(item.id)}>Answer</button>
+                                </div>
+                                <div>
+                                    {sessionUser.id === item.ownerId && (
+                                        <button onClick={() => setShowMenu(item.id)}>
+                                            svg
+                                        </button>
+                                    )}
+                                </div>
+                                {showMenu === item.id && (
+                                    <ul className='profile-dropdown'>
+                                        <li>
+                                            <div></div>
+                                            <div onClick={() => handleEdit(item.id)}>Edit</div>
+                                        </li>
+                                        <li>
+                                            <div></div>
+                                            <div onClick={() => handleDelete(item.id)}>Delete</div>
+                                        </li>
+                                    </ul>
+                                )}
+                            </div>
+                            {answerDisplay && answerToggleId === item.id && (
+                                <div>
+                                    <div className='top-answer-section'>
+                                        <div></div>
+                                        <div>
+                                            <textarea
+                                                value={answerText}
+                                                onChange={handleOnChange}
+                                            ></textarea>
                                         </div>
-                                        <div className='drop-down-answer'>
-                                            {answer.answer}
-                                        </div>
-                                        <div className='drop-down-answer-bar'>
-                                            <div>
-                                                {sessionUser.id === answer.userId && (
-                                                    <button onClick={() => setShowAnswerMenu(answer.id)}>
-                                                    svg
-                                                    </button>
-                                                )}
-                                            </div>
-                                            {showAnswerMenu === answer.id && (
-                                                <ul className='answer-button-drop-down'>
-                                                    <li>
-                                                        <div></div>
-                                                        <div onClick={() => handleAnswerEdit(answer.id, answer.questionId)}>Edit</div>
-                                                    </li>
-                                                    <li>
-                                                        <div></div>
-                                                        <div onClick={() => handleAnswerDelete(answer.id)}>Delete</div>
-                                                    </li>
-                                                </ul>
-                                            )}
+                                        <div>
+                                            <button onClick={() => handleAnswer(item.id)}>Submit</button>
                                         </div>
                                     </div>
-                                ))}
-                            </div>
+                                    <div className='answer-display'>
+                                        {item.Answers.map(answer => (
+                                            <div key={answer.id}>
+                                                <div className='answer-person-face'></div>
+                                                <div className='answer-person-name'>
+                                                    {users.find(user => user.id === answer.userId).username}
+                                                </div>
+                                                <div className='drop-down-answer'>
+                                                    {answer.answer}
+                                                </div>
+                                                <div className='drop-down-answer-bar'>
+                                                    <div>
+                                                        {sessionUser.id === answer.userId && (
+                                                            <button onClick={() => setShowAnswerMenu(answer.id)}>
+                                                                svg
+                                                            </button>
+                                                        )}
+                                                    </div>
+                                                    {showAnswerMenu === answer.id && (
+                                                        <ul className='answer-button-drop-down'>
+                                                            <li>
+                                                                <div></div>
+                                                                <div onClick={() => handleAnswerEdit(answer.id, answer.questionId)}>Edit</div>
+                                                            </li>
+                                                            <li>
+                                                                <div></div>
+                                                                <div onClick={() => handleAnswerDelete(answer.id)}>Delete</div>
+                                                            </li>
+                                                        </ul>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
-                    )}
+                    ))}
                 </div>
-            ))}
-
-
-
+                <div className='right-column'></div>
+            </div>
 
 
 
 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <QuestionForm onClose={() => setShowModal(false)} modalType={modalType} editedQuestionId={editedQuestionId} editedAnswerId={editedAnswerId} editedAnswerItem={editedAnswerItem}/>
+                    <QuestionForm onClose={() => setShowModal(false)} modalType={modalType} editedQuestionId={editedQuestionId} editedAnswerId={editedAnswerId} editedAnswerItem={editedAnswerItem} />
                 </Modal>
             )}
         </>

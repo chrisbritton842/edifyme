@@ -425,3 +425,11 @@
     line-height: 21px;
     margin-right: 8px;
 }
+
+.login-error {
+    box-sizing: border-box;
+    color: #cb4b10;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 13px;
+    line-height: 18.2px;
+}
