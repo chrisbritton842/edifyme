@@ -135,16 +135,10 @@ function DisplayPage() {
                                     )}
                                 </div>
                                 {showMenu === item.id && showMenuBool && (
-                                    <ul className='profile-dropdown'>
-                                        <li>
-                                            <div></div>
-                                            <div onClick={() => handleEdit(item.id)}>Edit</div>
-                                        </li>
-                                        <li>
-                                            <div></div>
-                                            <div onClick={() => handleDelete(item.id)}>Delete</div>
-                                        </li>
-                                    </ul>
+                                    <div className='answer-button-drop-down'>
+                                        <div className='drop-down-btn' onClick={() => handleEdit(item.id)}>Edit</div>
+                                        <div className='drop-down-btn' onClick={() => handleDelete(item.id)}>Delete</div>
+                                    </div>
                                 )}
                             </div>
                             {answerDisplay && answerToggleId === item.id && (
