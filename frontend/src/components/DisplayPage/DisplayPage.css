@@ -407,3 +407,63 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.answer-display {
+    background-color: #f7f7f8;
+    border-color: #dee0e1;
+    border-top: solid #dee0e1;
+    border-width: 1px;
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+}
+
+.lower-answer-head {
+    border-radius: 100%;
+    border-style: none;
+    box-sizing: border-box;
+    color: #282829;
+    display: block;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    height: 36px;
+    line-height: 21px;
+    max-width: 100%;
+    min-width: 36px;
+    position: relative;
+    width: 36px;
+}
+
+.answer-person-name {
+    align-items: center;
+    box-sizing: border-box;
+    color: #282829;
+    display: inline-flex;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18.2px;
+    word-wrap: break-word;
+}
+
+.lower-outside-head-section {
+    align-items: flex-start;
+    box-sizing: border-box;
+    color: #282829;
+    flex: 1 1 auto;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    min-width: 0;
+}
+
+.lower-answer-container {
+    display: flex;
+}

@@ -167,34 +167,36 @@ function DisplayPage() {
                                     </div>
                                     <div className='answer-display'>
                                         {item.Answers.map(answer => (
-                                            <div key={answer.id}>
-                                                <div className='answer-person-face'></div>
-                                                <div className='answer-person-name'>
-                                                    {users.find(user => user.id === answer.userId).username}
-                                                </div>
-                                                <div className='drop-down-answer'>
-                                                    {answer.answer}
-                                                </div>
-                                                <div className='drop-down-answer-bar'>
-                                                    <div>
-                                                        {sessionUser.id === answer.userId && (
-                                                            <button onClick={() => setShowAnswerMenu(answer.id)}>
-                                                                svg
-                                                            </button>
+                                            <div className='lower-answer-container' key={answer.id}>
+                                                <img className='lower-answer-head' src={head} alt='Logo'/>
+                                                <div className='lower-outside-head-section'>
+                                                    <span className='answer-person-name'>
+                                                        {users.find(user => user.id === answer.userId).username}
+                                                    </span>
+                                                    <div className='drop-down-answer'>
+                                                        {answer.answer}
+                                                    </div>
+                                                    <div className='drop-down-answer-bar'>
+                                                        <div>
+                                                            {sessionUser.id === answer.userId && (
+                                                                <button className='question-edit-button' onClick={() => setShowAnswerMenu(answer.id)}>
+                                                                    <EditIcon/>
+                                                                </button>
+                                                            )}
+                                                        </div>
+                                                        {showAnswerMenu === answer.id && (
+                                                            <ul className='answer-button-drop-down'>
+                                                                <li>
+                                                                    <div></div>
+                                                                    <div onClick={() => handleAnswerEdit(answer.id, answer.questionId)}>Edit</div>
+                                                                </li>
+                                                                <li>
+                                                                    <div></div>
+                                                                    <div onClick={() => handleAnswerDelete(answer.id)}>Delete</div>
+                                                                </li>
+                                                            </ul>
                                                         )}
                                                     </div>
-                                                    {showAnswerMenu === answer.id && (
-                                                        <ul className='answer-button-drop-down'>
-                                                            <li>
-                                                                <div></div>
-                                                                <div onClick={() => handleAnswerEdit(answer.id, answer.questionId)}>Edit</div>
-                                                            </li>
-                                                            <li>
-                                                                <div></div>
-                                                                <div onClick={() => handleAnswerDelete(answer.id)}>Delete</div>
-                                                            </li>
-                                                        </ul>
-                                                    )}
                                                 </div>
                                             </div>
                                         ))}
