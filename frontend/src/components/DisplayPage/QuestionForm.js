@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ReactComponent as Logo } from './logo1.svg';
 import { ReactComponent as ExitLogo } from './exit.svg';
 import * as questionsActions from '../../store/questions';
 import { Redirect } from 'react-router-dom';
@@ -74,13 +73,12 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
             </div>
             <div>
                 {modalType === 'create' && (
-                    <div>
+                    <div className='modal-container'>
                         <div className='modal-top'>
                             <div className='close-div' onClick={onClose}>
                                 <ExitLogo />
                             </div>
                             <div className='add-question-div'>
-                                <Logo />
                                 Add Question
                             </div>
                         </div>
@@ -91,6 +89,7 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
                                 </div>
                                 <div className='text-area-div'>
                                     <textarea
+                                    className='text-area-field'
                                     placeholder='Start your question with "What", "How", "Why", etc.'
                                     value={newQuestion}
                                     onChange={e => setNewQuestion(e.target.value)}
@@ -99,15 +98,17 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
                             </div>
                         </div>
                         <div className='modal-bottom'>
-                            <button onClick={onClose}>Cancel</button>
-                            <button onClick={handleAsk}>Add question</button>
+                            <button className='modal-cancel-btn' onClick={onClose}>Cancel</button>
+                            <button className='modal-edit-btn' onClick={handleAsk}>
+                                <div className='modal-edit-btn-text'>Add question</div>
+                            </button>
                         </div>
                     </div>
                 )}
             </div>
             <div>
                 {modalType === 'answerEdit' && (
-                    <div>
+                    <div className='modal-container'>
                         <div className='modal-top'>
                             <div className='close-div' onClick={onClose}>
                                 <ExitLogo />
@@ -123,6 +124,7 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
                                 </div>
                                 <div className='text-area-div'>
                                     <textarea
+                                    className='text-area-field'
                                     placeholder='Start your question with "What", "How", "Why", etc.'
                                     value={answerEdit}
                                     onChange={e => setAnswerEdit(e.target.value)}
@@ -131,8 +133,10 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
                             </div>
                         </div>
                         <div className='modal-bottom'>
-                            <button onClick={onClose}>Cancel</button>
-                            <button onClick={handleAnswerEdit}>Edit</button>
+                            <button className='modal-cancel-btn' onClick={onClose}>Cancel</button>
+                            <button className='modal-edit-btn' onClick={handleAnswerEdit}>
+                                <div className='modal-edit-btn-text'>Edit</div>
+                            </button>
                         </div>
                     </div>
                 )}
