@@ -109,7 +109,7 @@ function DisplayPage() {
                         <div key={item.id} className='question-container'>
                             <div className='question-top'>
                                 <div className='user-image'></div>
-                                <span>{item.User?.username}</span>
+                                <span className='answer-person-name'>{item.User?.username}</span>
                                 <span>{item.User?.personalDescription}</span>
                             </div>
                             <div className='question-section'>
