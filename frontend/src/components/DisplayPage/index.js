@@ -18,6 +18,7 @@ function DisplayPage() {
     const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(null);
     const [showMenuBool, setShowMenuBool] = useState(false);
+    const [showLowerMenuBool, setShowLowerMenuBool] = useState(false);
     const [showAnswerMenu, setShowAnswerMenu] = useState(null)
     const [modalType, setModalType] = useState('');
     const [editedQuestionId, setEditedQuestionId] = useState(null);
@@ -179,22 +180,19 @@ function DisplayPage() {
                                                     <div className='drop-down-answer-bar'>
                                                         <div>
                                                             {sessionUser.id === answer.userId && (
-                                                                <button className='question-edit-button' onClick={() => setShowAnswerMenu(answer.id)}>
+                                                                <button className='question-edit-button' onClick={() => {
+                                                                    setShowAnswerMenu(answer.id)
+                                                                    setShowLowerMenuBool(!showLowerMenuBool)
+                                                                    }}>
                                                                     <EditIcon/>
                                                                 </button>
                                                             )}
                                                         </div>
-                                                        {showAnswerMenu === answer.id && (
-                                                            <ul className='answer-button-drop-down'>
-                                                                <li>
-                                                                    <div></div>
-                                                                    <div onClick={() => handleAnswerEdit(answer.id, answer.questionId)}>Edit</div>
-                                                                </li>
-                                                                <li>
-                                                                    <div></div>
-                                                                    <div onClick={() => handleAnswerDelete(answer.id)}>Delete</div>
-                                                                </li>
-                                                            </ul>
+                                                        {showAnswerMenu === answer.id && showLowerMenuBool && (
+                                                            <div className='answer-button-drop-down'>
+                                                                <div className='drop-down-btn' onClick={() => handleAnswerEdit(answer.id, answer.questionId)}>Edit</div>
+                                                                <div className='drop-down-btn' onClick={() => handleAnswerDelete(answer.id)}>Delete</div>
+                                                            </div>
                                                         )}
                                                     </div>
                                                 </div>

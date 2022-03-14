@@ -467,3 +467,43 @@
 .lower-answer-container {
     display: flex;
 }
+
+.answer-button-drop-down {
+    list-style-type: none;
+    background-color: #fff;
+    border: 1px solid #dee0e1;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, .03) 0 1px 2px,rgba(0, 0, 0, .05) 0 3px 8px;
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    overflow: hidden;
+    box-sizing: border-box;
+    inset: auto auto 0 0;
+    transform: translate3d(0, 0, 0);
+    z-index: 101;
+    max-width: 230px;
+    width: max-content;
+    justify-items: center;
+}
+
+.drop-down-btn {
+    align-items: center;
+    background-color: #fff;
+    box-sizing: border-box;
+    color: #282829;
+    cursor: pointer;
+    display: flex;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    justify-content: space-between;
+    line-height: 21px;
+    padding: 8px;
+    transition: background-color 180ms ease-in-out;
+}
+
+.drop-down-btn:hover {
+    background-color: rgba(0, 0, 0, .03);
+}
