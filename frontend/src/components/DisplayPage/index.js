@@ -149,15 +149,20 @@ function DisplayPage() {
                             {answerDisplay && answerToggleId === item.id && (
                                 <div>
                                     <div className='top-answer-section'>
-                                        <div></div>
-                                        <div>
+                                        <div className='answer-head-div'>
+                                            <img className='answer-head' src={head} alt='Logo'/>
+                                        </div>
+                                        <div className='top-answer-div'>
                                             <textarea
+                                                className='top-answer-input-field'
                                                 value={answerText}
                                                 onChange={handleOnChange}
                                             ></textarea>
                                         </div>
-                                        <div>
-                                            <button onClick={() => handleAnswer(item.id)}>Submit</button>
+                                        <div className='top-answer-submit-div'>
+                                            <button className='top-answer-submit-btn' onClick={() => handleAnswer(item.id)}>
+                                                <div className='top-answer-btn-text'>Answer Question</div>
+                                            </button>
                                         </div>
                                     </div>
                                     <div className='answer-display'>
