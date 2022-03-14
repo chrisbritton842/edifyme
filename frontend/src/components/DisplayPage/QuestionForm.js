@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from './logo1.svg';
 import { ReactComponent as ExitLogo } from './exit.svg';
 import * as questionsActions from '../../store/questions';
 import { Redirect } from 'react-router-dom';
+import './QuestionForm.css';
 
 function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, editedAnswerItem }) {
     const dispatch = useDispatch();
@@ -38,7 +39,7 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
         <>
             <div>
                 {modalType === 'edit' && (
-                    <div>
+                    <div className='modal-container'>
                         <div className='modal-top'>
                             <div className='close-div' onClick={onClose}>
                                 <ExitLogo />
@@ -54,6 +55,7 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
                                 </div>
                                 <div className='text-area-div'>
                                     <textarea
+                                    className='text-area-field'
                                     placeholder='Start your question with "What", "How", "Why", etc.'
                                     value={newEdit}
                                     onChange={e => setNewEdit(e.target.value)}
@@ -62,8 +64,10 @@ function QuestionForm({ onClose, modalType, editedQuestionId, editedAnswerId, ed
                             </div>
                         </div>
                         <div className='modal-bottom'>
-                            <button onClick={onClose}>Cancel</button>
-                            <button onClick={handleEdit}>Edit</button>
+                            <button className='modal-cancel-btn' onClick={onClose}>Cancel</button>
+                            <button className='modal-edit-btn' onClick={handleEdit}>
+                                <div className='modal-edit-btn-text'>Edit</div>
+                            </button>
                         </div>
                     </div>
                 )}

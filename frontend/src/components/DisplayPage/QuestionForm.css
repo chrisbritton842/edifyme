@@ -1,1 +1,249 @@
+.modal-container {
+    align-self: center;
+    background-color: #fff;
+    border: 1px solid #dee0e1;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    max-height: 80vh;
+    max-width: 90vw;
+    min-height: 400px;
+    overflow-y: auto;
+    position: relative;
+    transition-duration: 180ms;
+    transition-property: opacity,transform;
+    transition-timing-function: ease-in-out;
+    width: 620px;
+}
 
+.modal-top {
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    position: relative;
+    transition-duration: 180ms;
+    transition-property: box-shadow,background-color;
+    transition-timing-function: ease-in-out;
+}
+
+.close-div {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, .6);
+    align-items: center;
+    appearance: none;
+    background-color: transparent;
+    border-radius: 1000px;
+    border-width: 0;
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    height: 38px;
+    justify-content: center;
+    line-height: 1.15;
+    margin: 0;
+    min-width: 38px;
+    outline: none;
+    outline: 0;
+    overflow: visible;
+    padding: 0 6px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition-duration: 60ms;
+    transition-property: box-shadow,background-color;
+    transition-timing-function: ease-out;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.close-div:hover {
+    background-color: rgba(0, 0, 0, .03);
+}
+
+.add-question-div {
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25.2px;
+    padding-left: 16px;
+}
+
+.modal-middle {
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    overflow-y: auto;
+}
+
+.inner-modal-middle {
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    padding: 8px 16px 16px;
+}
+
+.text-area-div {
+    align-items: center;
+    background-color: #fff;
+    border-color: #dee0e1;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #282829;
+    display: flex;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    min-height: unset;
+    position: relative;
+    transition-duration: 180ms;
+    transition-timing-function: ease-in-out;
+    z-index: 0;
+}
+
+.text-area-div:hover {
+    border-color: #2e69ff;
+}
+
+.text-area-field {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #282829;
+    cursor: text;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+    height: 101px;
+    line-height: 1.4;
+    margin: 0;
+    max-height: unset;
+    outline: 0;
+    overflow: auto;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    padding: 0;
+    resize: none;
+    white-space: pre-wrap;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.modal-bottom {
+    background-color: #fff;
+    border-color: #dee0e1;
+    border-top: solid #dee0e1;
+    border-width: 1px;
+    bottom: 0;
+    box-sizing: border-box;
+    color: #282829;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    position: sticky;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-cancel-btn {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, .6);
+    align-items: center;
+    appearance: none;
+    background-color: transparent;
+    border-radius: 1000px;
+    border-width: 0;
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    height: 38px;
+    justify-content: center;
+    line-height: 1.15;
+    margin: 0;
+    min-width: 38px;
+    outline: none;
+    outline: 0;
+    overflow: visible;
+    padding: 0 12px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition-duration: 60ms;
+    transition-property: box-shadow,background-color;
+    transition-timing-function: ease-out;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.modal-cancel-btn:hover {
+    background-color: rgba(0, 0, 0, .03);
+}
+
+.modal-edit-btn {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, .6);
+    align-items: center;
+    appearance: none;
+    background-color: #2e69ff;
+    border-radius: 1000px;
+    border-width: 0;
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    height: 38px;
+    justify-content: center;
+    line-height: 1.15;
+    margin: 0;
+    min-width: 38px;
+    opacity: .5;
+    outline: none;
+    outline: 0;
+    overflow: visible;
+    padding: 0 20px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition-duration: 60ms;
+    transition-property: box-shadow,background-color;
+    transition-timing-function: ease-out;
+    user-select: none;
+    white-space: nowrap;
+    width: 70.75px;
+    height: 38px;
+}
+
+.modal-edit-btn-text {
+    align-items: center;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.6px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+}
