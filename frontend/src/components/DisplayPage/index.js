@@ -52,6 +52,7 @@ function DisplayPage() {
     };
 
     const handleEdit = (questionId) => {
+        setShowMenuBool(false);
         setModalType('edit');
         setEditedQuestionId(questionId);
         setShowModal(true);

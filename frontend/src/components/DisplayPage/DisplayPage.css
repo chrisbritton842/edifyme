@@ -450,7 +450,7 @@
     line-height: 21px;
     overflow: hidden;
     box-sizing: border-box;
-    z-index: 101;
+    z-index: 1;
     max-width: 230px;
     width: max-content;
     justify-items: center;
