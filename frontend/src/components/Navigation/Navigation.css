@@ -48,3 +48,7 @@
 .menu-logout {
     cursor: pointer;
 }
+
+.dropdown-profile-btn{
+    cursor: pointer;
+}

@@ -90,12 +90,14 @@ function DisplayPage() {
         <Redirect to='/login' />
     )
 
+    document.addEventListener('click', (e) => {
+        if (e.target.className !== "drop-down-btn") setShowMenuBool(false);
+    }, true);
+
     return (
         <>
             <Navigation isLoaded={isLoaded} />
             <div className='display-page-container'>
-                <div className='left-column'></div>
-
                 <div className='display-page-content-container'>
                     <div className='top-question-container'>
                         <div className='ask-head-div'>
@@ -198,7 +200,6 @@ function DisplayPage() {
                         </div>
                     ))}
                 </div>
-                <div className='right-column'></div>
             </div>
 
 
