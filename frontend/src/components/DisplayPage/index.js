@@ -63,6 +63,7 @@ function DisplayPage() {
     };
 
     const handleAnswerEdit = (answerId, itemId) => {
+        setShowLowerMenuBool(false);
         setModalType('answerEdit');
         setEditedAnswerId(answerId);
         setEditedAnswerItem(itemId);
