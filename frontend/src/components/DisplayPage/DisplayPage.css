@@ -302,21 +302,24 @@
     line-height: 21px;
     margin-left: 8px;
     min-width: 0;
-    padding: 8px 16px;
+    padding: 8px 8px;
 }
 
 .top-answer-input-field {
     border: none;
+    outline: none;
+    box-sizing: border-box;
     color: #282829;
     font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
     font-size: 15px;
     line-height: 22.5px;
+    overflow: hidden;
+    resize: none;
     tab-size: 4;
     text-align: left;
     white-space: pre-wrap;
     word-wrap: break-word;
-    width: 320px;
-    height: 22.5px;
+    width: 100%;
 }
 
 .top-answer-submit-div {
@@ -328,6 +331,7 @@
     font-size: 15px;
     justify-content: flex-end;
     line-height: 21px;
+    margin: 8px;
 }
 
 .top-answer-submit-btn {

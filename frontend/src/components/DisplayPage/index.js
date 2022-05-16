@@ -87,6 +87,11 @@ function DisplayPage() {
         setAnswerText(e.target.value)
     };
 
+    const handleOnInput = (e) => {
+        e.target.style.height = 'auto';
+        e.target.style.height = e.target.scrollHeight + 'px';
+    };
+
 
     if (!sessionUser) return (
         <Redirect to='/login' />
@@ -156,6 +161,7 @@ function DisplayPage() {
                                                 className='top-answer-input-field'
                                                 value={answerText}
                                                 onChange={handleOnChange}
+                                                onInput={handleOnInput}
                                             ></textarea>
                                         </div>
                                         <div className='top-answer-submit-div'>
