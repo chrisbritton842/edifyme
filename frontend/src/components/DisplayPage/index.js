@@ -80,7 +80,13 @@ function DisplayPage() {
     };
 
     const handleAnswer = (itemId) => {
-        if (answerText) return dispatch(questionsActions.createAnswer({ questionId: itemId, answer: answerText }))
+        if (answerText) {
+            const answer = answerText;
+            setAnswerText('');
+            const inputField = document.querySelector(`#textarea-${itemId}`);
+            inputField.style.height = 'auto';
+            return dispatch(questionsActions.createAnswer({ questionId: itemId, answer: answer }));
+        }
     };
 
     const handleOnChange = (e) => {
@@ -88,6 +94,7 @@ function DisplayPage() {
     };
 
     const handleOnInput = (e) => {
+        console.log("Target: ", e.target)
         e.target.style.height = 'auto';
         e.target.style.height = e.target.scrollHeight + 'px';
     };
@@ -158,6 +165,7 @@ function DisplayPage() {
                                         </div>
                                         <div className='top-answer-div'>
                                             <textarea
+                                                id={`textarea-${item.id}`}
                                                 className='top-answer-input-field'
                                                 value={answerText}
                                                 onChange={handleOnChange}
