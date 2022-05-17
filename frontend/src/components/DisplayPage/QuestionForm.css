@@ -131,13 +131,13 @@
     cursor: text;
     font-family: -apple-system,system-ui,"system-ui","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
     font-size: 18px;
-    height: 101px;
+    height: 255px;
     line-height: 1.4;
     margin: 0;
     max-height: unset;
     outline: 0;
     overflow: auto;
-    overflow: hidden;
+    overflow: scroll;
     overflow-wrap: break-word;
     padding: 0;
     resize: none;
