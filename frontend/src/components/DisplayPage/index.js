@@ -94,7 +94,6 @@ function DisplayPage() {
     };
 
     const handleOnInput = (e) => {
-        console.log("Target: ", e.target)
         e.target.style.height = 'auto';
         e.target.style.height = e.target.scrollHeight + 'px';
     };
