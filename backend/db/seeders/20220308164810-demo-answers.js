@@ -1,5 +1,12 @@
 'use strict';
 
+// NEW
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA;
+}
+// END of new code
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
@@ -12,7 +19,8 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-      return queryInterface.bulkInsert('Answers', [
+      options.tableName = 'Answers';
+      return queryInterface.bulkInsert(options, [
         {
           userId: 1,
           questionId: 3,
@@ -39,6 +47,7 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-      return queryInterface.bulkDelete('Answers', null, {});
+      options.tableName = 'Answers';
+      return queryInterface.bulkDelete(options, null, {});
   }
 };
